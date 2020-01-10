@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2020 at 11:32 AM
+-- Generation Time: Jan 10, 2020 at 01:40 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -65,7 +65,9 @@ INSERT INTO `enroll` (`Enroll_ID`, `EnrollClassID`, `EnrollStudentID`) VALUES
 (3, 1, 8),
 (4, 2, 4),
 (5, 3, 3),
-(6, 2, 7);
+(6, 2, 7),
+(7, 4, 11),
+(8, 1, 12);
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,11 @@ INSERT INTO `student` (`StudentID`, `name`, `surname`, `email`) VALUES
 (3, 'Franz', 'Haus', 'Franz.haus@gmx.at'),
 (4, 'Franz', 'Kafka', 'franz.kafka@gmx.at'),
 (7, 'Gerhard', 'Heringer', 'gerhard.heringer@gmx.at'),
-(8, 'Max', 'Mustermann', 'max.mustermann@gmx.at');
+(8, 'Max', 'Mustermann', 'max.mustermann@gmx.at'),
+(9, 'peter', 'frederik', 'peter.frederik@gmx.at'),
+(10, 'heinz', 'christian', 'heinz.c@gmx.at'),
+(11, 'gerhard', 'zink', 'gerhard.zink@gmx.at'),
+(12, 'paul', 'peter der 2te', 'paul.peter@gmx.at');
 
 -- --------------------------------------------------------
 
@@ -105,6 +111,16 @@ CREATE TABLE `teacher` (
   `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`TeacherID`, `name`, `surname`, `email`) VALUES
+(1, 'Peter', 'klaus', 'peter.klaus@gmx.at'),
+(2, 'hans ', 'mayer', 'hans.mayer@gmx.at'),
+(3, 'stephan', 'rohringer', 'stephan.rohringer@gmx.at'),
+(4, 'freddy', 'krüger', 'fredy.krüger@gmx.at');
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +132,16 @@ CREATE TABLE `teacherenrollclass` (
   `TeacherID` int(11) NOT NULL,
   `ClassID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `teacherenrollclass`
+--
+
+INSERT INTO `teacherenrollclass` (`TeacherEnrollClass`, `TeacherID`, `ClassID`) VALUES
+(1, 2, 1),
+(2, 4, 2),
+(3, 1, 3),
+(4, 4, 4);
 
 --
 -- Indexes for dumped tables
@@ -169,25 +195,25 @@ ALTER TABLE `class`
 -- AUTO_INCREMENT for table `enroll`
 --
 ALTER TABLE `enroll`
-  MODIFY `Enroll_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Enroll_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `StudentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `StudentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `TeacherID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TeacherID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teacherenrollclass`
 --
 ALTER TABLE `teacherenrollclass`
-  MODIFY `TeacherEnrollClass` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `TeacherEnrollClass` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
